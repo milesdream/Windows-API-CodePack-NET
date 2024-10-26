@@ -10621,6 +10621,28 @@ namespace Microsoft.WindowsAPICodePack.Shell.PropertySystem
             }
 
             /// <summary>
+			/// <para>Name:     System.RecordedTV.EpisodeNumber -- PKEY_RecordedTV_EpisodeName</para>
+			/// <para>Description: Example: "Nowhere to Hyde"
+			///</para>
+			/// <para>Type:     String -- VT_LPWSTR  (For variants: VT_BSTR)</para>
+			/// <para>FormatID: {6D748DE2-8D38-4CC3-AC60-F009B057C557}, 2</para>
+			/// </summary>
+			public ShellProperty<UInt32?> EpisodeNumber
+            {
+                get
+                {
+                    PropertyKey key = SystemProperties.System.Media.EpisodeNumber;
+
+                    if (!hashtable.ContainsKey(key))
+                    {
+                        hashtable.Add(key, shellObjectParent.Properties.CreateTypedProperty<UInt32?>(key));
+                    }
+
+                    return hashtable[key] as ShellProperty<UInt32?>;
+                }
+            }
+
+            /// <summary>
             /// <para>Name:     System.Media.FrameCount -- PKEY_Media_FrameCount</para>
             /// <para>Description: Indicates the frame count for the image.
             ///</para>
